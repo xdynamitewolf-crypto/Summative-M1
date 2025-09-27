@@ -7,7 +7,7 @@
    color: black;
    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-
+/* ====== HEADER / NAVIGATION ====== */
 .headerbar{
    display: none;
 }
@@ -180,6 +180,8 @@
    margin-bottom: 10px;
 }
 
+/* White button (food cards) */
+
 .white_btn{
    cursor: pointer;
    margin-top: 20px;
@@ -262,6 +264,7 @@
    font-size: 13px;
 }
 
+/* ====== SLIDE SECTION 3 (Favorites) ====== */
 
 .main_slide3{
    display: flex;
