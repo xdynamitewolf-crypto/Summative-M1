@@ -8,12 +8,19 @@
    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 /* ====== HEADER / NAVIGATION ====== */
-.headerbar{
-   display: none;
+body {
+    overflow-x: hidden;
 }
-.searchicon{
-   display: block;
+
+.headerbar {
+    display: none;
+    /* headerbar is hidden */
 }
+
+.searchicon {
+    display: block;
+}
+
 .Logo img{
    width: 150px;
 }
@@ -22,6 +29,8 @@
    font-size: 18px;
 }
 
+
+/* Header for laptop (start) */
 
 .header{
    display: flex;
@@ -40,24 +49,30 @@
 .header ul li:hover{
    color: rgb(34, 153, 221);
 }
+.header ul li i:hover {
+    color: rgb(119, 199, 163);
+}
 .nav ul li{
    padding: 0 15px;
    font-size: 14px;
    font-weight: bold;
 }
 .account {
-   flex: 0.1
+    flex: 0.1;
 }
 
-.account ul{
-   display: flex;
-   justify-content: end;
+.account ul {
+    display: flex;
+    justify-content: end;
 }
 
-.account ul li{
-   padding: 0 15px;
-   font-size: 18px;
+.account ul li {
+    padding: 0 15px;
+    font-size: 18px;
+}
 
+.logo img {
+    width: 150px;
 }
 
 .bar i:hover{
@@ -84,27 +99,36 @@
    cursor: pointer;
 }
 
-.home{
-   background-color: rgb(221, 234, 246);
-   padding: 0 7vw;
+
+/* Home page  */
+
+.home,
+.about,
+.menu {
+    background-color: rgb(217, 244, 248);
+    padding: 0 7vw;
 }
 
-.main_slide{
-   display: flex;
-   align-items: center;
-   flex-wrap: wrap-reverse;
-}
-.main_slide div:nth-child(2){
-   flex: 1;
-   display: flex;
-   justify-content: center;
-   padding-top: 40px;
+
+/* section 1 */
+
+.main_slide {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap-reverse;
 }
 
-.main_slide div:nth-child(1){
-   padding-top: 20px;
-   flex: 1;
-   font-size: 30px;
+.main_slide div:nth-child(2) {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    padding-top: 40px;
+}
+
+.main_slide div:nth-child(1) {
+    padding-top: 20px;
+    flex: 1;
+    font-size: 30px;
 }
 
 .main_slide div:nth-child(1) p{
@@ -117,6 +141,27 @@
    text-decoration: underline;
    text-underline-offset: 10px;
    text-decoration-color: rgb(34, 153, 221);
+}
+
+
+/* Button CSS */
+
+.blue_btn {
+   cursor: pointer;
+   margin-top: 20px;
+   width: 160px;
+   font-weight: bold;
+   color: aliceblue;
+   line-height: 50px;
+   background-color: rgb(189, 224, 255);
+   border-radius: 5px;
+   border: 1px solid rgb(124, 201, 222);
+   box-shadow: 0 10px 15px rgb(101, 173, 241);
+   transition: all 0.2s;
+}
+
+.blue_btn i {
+    color: white;
 }
 
 .blue_btn{
@@ -190,7 +235,7 @@
    color: rgb(101, 173, 241);
    line-height: 50px;
    border: 1px solid rgb(101, 173, 241);
-   background-color: aliceblue;
+   background-color: rgb(220, 240, 255);
    border-radius: 5px;
    box-shadow: 0 2px 15px rgb(124, 201, 222);
    transition: all 0.2s;
@@ -428,6 +473,450 @@
    list-style: 13px;
 }
 
+
+/* Section 6 */
+
+.letter {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 100px 0;
+}
+
+.letter-head {
+    flex: 0.5;
+}
+
+.letter-head h2 {
+    font-size: 30px;
+}
+
+.letter-head span {
+    color: rgb(0, 191, 255);
+}
+
+.letter-input {
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    flex: 0.5;
+}
+
+.letter-input div {
+    width: 70%;
+    display: flex;
+    align-items: center;
+    background-color: rgb(185, 230, 255);
+}
+
+.letter-input input {
+    font-size: 15px;
+    padding: 10px;
+    outline: none;
+    width: 100%;
+    border: none;
+    background-color: rgb(185, 233, 255);
+}
+
+.letter-input .red_btn {
+    margin: 0;
+    font-size: 18px;
+    box-shadow: none;
+    border-radius: 0 10px 10px 0;
+}
+
+
+/* Footer Start here  */
+
+.footer {
+    padding: 60px 0;
+    border-top: 2px solid rgb(107, 252, 201);
+    background-color: rgb(195, 245, 252);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.footer-1 .logo img {
+    width: 200px;
+}
+
+.footer-1 p {
+    cursor: pointer;
+    font-size: 14px;
+    padding: 2px;
+    color: rgb(31, 165, 213);
+}
+
+.footer-2 {
+    text-align: center;
+    cursor: pointer;
+}
+
+.footer-2 h2 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.footer-2 img {
+    width: 50px;
+    margin-bottom: 15px;
+}
+
+
+/* Signup/signin Form */
+
+.sign {
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    backdrop-filter: blur(8px);
+    display: none;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.sign-box {
+    transition: all 0.4s;
+    background-color: white;
+    max-width: 500px;
+    width: 500px;
+    border-radius: 20px;
+    padding: 35px;
+    transform: scale(0);
+}
+
+.sign-box h3 {
+    text-align: center;
+    font-size: 28px;
+    color: rgb(255, 72, 0);
+    padding-bottom: 20px;
+}
+
+.sign-box form input {
+    padding: 5px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    width: 100%;
+    font-size: 14px;
+    outline: none;
+}
+
+.sign-box .signin form input {
+    margin-bottom: 20px;
+}
+
+.sign-box .signin form input:last-of-type {
+    margin-top: 20px;
+}
+
+.sign-box form input:last-of-type {
+    background-color: rgb(253, 128, 78);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 5px;
+    line-height: 30px;
+    outline: none;
+    margin-bottom: 30px;
+}
+
+.sign-box form input:last-of-type:hover {
+    background-color: rgb(253, 99, 38);
+}
+
+.sign-box form label {
+    font-size: 16px;
+    font-weight: bold;
+    color: rgb(46, 46, 46);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.sign-box p {
+    font-size: 13px;
+    color: rgb(252, 30, 30);
+    cursor: pointer;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.sign-box p:hover {
+    text-decoration: underline;
+}
+
+.sign .bar {
+    display: block;
+    position: fixed;
+    top: 30px;
+    right: 50px;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.signin {
+    display: none;
+}
+
+/*Book table page CSS*/
+
+.table {
+    width: 100%;
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background: url(../images/table2.jpg);
+}
+
+.table .sign {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    display: block;
+    backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.table .sign-box {
+    background-color: white;
+    max-width: 500px;
+    width: 500px;
+    border-radius: 20px;
+    padding: 35px;
+    padding-bottom: 10px;
+    transform: scale(1);
+    box-shadow: 0 0 10px rgba(32, 32, 32, 0.384);
+}
+
+.table .signup h3 {
+    text-align: left;
+}
+
+
+/* Food menu page CSS*/
+
+.menu1 {
+    padding: 100px 0;
+    padding-top: 50px;
+}
+
+.menu h1 {
+    font-size: 3rem;
+    font-family: cursive;
+    text-align: center;
+    padding: 30px;
+    padding-top: 20px;
+}
+
+.menu .fav-food {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.menu .item {
+    background-color: white;
+    padding: 0;
+    border-radius: 20px;
+    overflow: hidden;
+    height: 280px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    transition: all 0.5s;
+    box-shadow: 0 2px 5px rgb(53, 0, 0);
+    cursor: pointer;
+}
+
+.menu .item div {
+    width: 100%;
+}
+
+.menu .item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 10px rgb(53, 0, 0);
+}
+
+.menu .item div img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.menu .item h3 {
+    padding: 15px;
+    padding-bottom: 0px;
+}
+
+.menu .item p {
+    font-size: 12px;
+    padding: 0 15px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+.menu .item .fav-price {
+    font-size: 17px;
+    color: rgb(30, 0, 255);
+    padding-bottom: 10px;
+    text-align: right;
+    margin: 5px 0;
+    font-weight: bold;
+}
+
+
+/* CSS code for Tablet */
+
+@media only screen and (max-width: 768px) {
+    .header .nav,
+    .header .account {
+        display: none;
+        /* header for laptop hidden */
+    }
+    .search {
+        width: 60vw;
+    }
+    .bar {
+        display: block;
+        cursor: pointer;
+    }
+    /* Hidden headerbar  */
+    .headerbar {
+        overflow: hidden;
+        transition: right 0.5s;
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        right: -100%;
+        background-color: rgb(216, 231, 252);
+        height: 100vh;
+    }
+    .headerbar .nav,
+    .headerbar .account {
+        display: block;
+        font-size: 18px;
+    }
+    .bar .fa-xmark {
+        display: none;
+        cursor: pointer;
+        top: 20px;
+        right: 5vw;
+        position: absolute;
+        font-size: 25px;
+    }
+    .headerbar .nav ul {
+        flex-direction: column;
+        margin-top: 10px;
+        text-align: center;
+    }
+    .headerbar .nav li {
+        width: 96vw;
+        margin: 10px 0;
+        padding: 15px 30px;
+        box-shadow: 0 2px 15px rgb(169, 224, 253);
+        font-size: 15px;
+        margin-top: 5px;
+        transition: all 0.7s;
+    }
+    .headerbar .account {
+        line-height: 40px;
+        margin-top: 60px;
+        background-color: rgb(182, 224, 252);
+        padding: 15px;
+    }
+    .headerbar .account ul {
+        justify-content: space-between;
+    }
+    /* Section 3 */
+    .foodimg {
+        flex: 1;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .foodimg img {
+        width: 70vw;
+    }
+    .question {
+        flex: 1;
+        margin-top: 30px;
+    }
+    .question h2 {
+        font-size: 25px;
+    }
+    .q-ans div:nth-child(2) p {
+        font-size: 11px;
+    }
+    /* Section 4 */
+    .main_slide3 {
+        margin-top: 100px;
+    }
+    .main_slide3 .dsgn {
+        height: 60%;
+    }
+    .main_slide3 .fav-head {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+    /* Section 5 */
+    .main_slide4 {
+        margin-top: 150px;
+    }
+    .main_slide4 .chef-feed {
+        flex: 1;
+    }
+    .main_slide4 .chef {
+        flex: 1;
+        text-align: center;
+        margin-bottom: 40px;
+    }
+    .main_slide4 .chef img {
+        width: 80vw;
+    }
+    /* Section 6 */
+    .letter-head h2 {
+        font-size: 20px;
+    }
+    .letter-input input {
+        font-size: 12px;
+        padding: 15px;
+        width: 50vw;
+    }
+    .letter-input .red_btn {
+        line-height: 40px;
+        width: 120px;
+        font-size: 12px;
+    }
+    /* Footer  */
+    .footer .footer-1 div {
+        margin: 0;
+    }
+    .footer div {
+        margin-bottom: 40px;
+    }
+    /* Signup/signin form  */
+    .sign-box h3 {
+        text-align: left;
+        margin-bottom: 25px;
+    }
+    #x-sign-mb {
+        display: block;
+        position: absolute;
+        top: 10px;
+        right: 0;
+    }
+    .sign-box form input:last-of-type:active {
+        background-color: rgb(253, 99, 38);
+    }
+}
 
 @media only screen and (max-width: 768px){
    .header .nav,.header .account{
@@ -693,100 +1182,12 @@ body.customer-page {
    animation: fadeIn 0.8s ease-in-out;
 }
 
-
-/* ==== Admin Page Theme ==== */
-body.admin-page {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  margin: 0;
-  padding: 0;
-  background: linear-gradient(135deg, #e6feff, #b3d5ff);
-  color: #333;
-  animation: fadeIn 0.8s ease-in-out;
-}
-
-/* Container */
-.page-container {
-  max-width: 900px;
-  margin: 40px auto;
-  padding: 30px;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-}
-
-/* Headings */
-h1 {
-  text-align: center;
-  color: #2b8cc0;
-  margin-bottom: 30px;
-}
-
-h2 {
-  color: #25e9cf;
-  margin-top: 25px;
-  border-bottom: 2px solid #87e2f0;
-  padding-bottom: 5px;
-}
-
-/* Tables */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 15px;
-  margin-bottom: 25px;
-}
-
-th, td {
-  border: 1px solid #ddd;
-  padding: 12px;
-  text-align: left;
-}
-
-th {
-  background-color: #12a1f3;
-  color: #fff;
-}
-
-tr:nth-child(even) {
-  background-color: #e9f9fd;
-}
-
-/* Feedback Section */
-ul {
-  list-style: disc inside;
-  margin-top: 10px;
-  padding-left: 15px;
-}
-
-ul li {
-  margin: 8px 0;
-  padding: 10px;
-  background: #fffaf3;
-  border-left: 4px solid #127bf3;
-  border-radius: 6px;
-}
-
 /* Reuse fade-in animation */
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
 }
 
-
-
-
-/* ===== Developer Page Styling ===== */
-
-/* Apply the same fade-in effect */
-body.developer-page {
-   background: linear-gradient(
-      to right,
-      rgb(189, 224, 255),
-      rgb(221, 234, 246)
-   );
-   animation: fadeIn 0.8s ease-in-out;
-   font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
 
 /* Shared container style for content cards */
 .page-container {
@@ -864,3 +1265,162 @@ body.developer-page {
    color: rgb(80, 80, 80);
 }
 
+
+@media only screen and (max-width: 550px) {
+    /* Header  */
+    .headerbar .nav li {
+        width: 96vw;
+    }
+    .headerbar {
+        width: 100%;
+        right: -100%;
+    }
+    .search {
+        width: 60vw;
+    }
+    /* Section 1 */
+    .main_slide div:nth-child(1) {
+        font-size: 18px;
+    }
+    .main_slide div:nth-child(1) p {
+        padding-top: 5px;
+        margin: 10px 0;
+        font-size: 11px;
+    }
+    /* Button  */
+    .red_btn {
+        margin-top: 10px;
+        width: 120px;
+        line-height: 30px;
+        font-size: 12px;
+        padding: 0 10px;
+    }
+    .main_slide div:nth-child(1) span {
+        text-underline-offset: 5px;
+    }
+    .main_slide div:nth-child(2) img {
+        width: 70vw;
+    }
+    /* Section 2 */
+    .food-items {
+        padding: 10px 0;
+    }
+    .item {
+        width: 60%;
+        padding: 30px 5px;
+    }
+    .item h3 {
+        font-size: 20px;
+        margin-bottom: 5px;
+    }
+    /* Section 4 */
+    .main_slide3 .fav-head {
+        width: 100%;
+    }
+    .main_slide3 .fav-head h3 {
+        font-size: 25px;
+    }
+    .main_slide3 .fav-head p {
+        font-size: 11px;
+    }
+    .main_slide3 .dsgn {
+        display: none;
+    }
+    /* Section 5 */
+    .main_slide4 .chef-vic div p {
+        display: none;
+    }
+    /* Section 6 */
+    .letter {
+        justify-content: center;
+    }
+    .letter-head {
+        flex: 1;
+        text-align: center;
+    }
+    /* Footer  */
+    .footer div:last-child {
+        margin-bottom: 0;
+    }
+    .footer {
+        padding-bottom: 25px;
+    }
+    .footer-2 h2 {
+        font-size: 20px;
+    }
+    /* signup form  */
+    .sign {
+        padding: 5vw;
+    }
+    .sign-box {
+        width: 80vw;
+        border-radius: 20px;
+        padding: 25px;
+        padding-bottom: 30px;
+    }
+    .sign-box h3 {
+        text-align: left;
+        font-size: 24px;
+        padding-top: 15px;
+        padding-bottom: 10px;
+    }
+    .sign-box form input {
+        font-size: 12px;
+    }
+    .sign-box .signin form input:last-of-type {
+        margin-top: 15px;
+    }
+    .sign-box form label {
+        font-size: 14px;
+    }
+    /*food menu page*/
+    .menu1 {
+        padding-top: 20px;
+        padding-bottom: 30px;
+    }
+    .menu h1 {
+        font-size: 2.5rem;
+    }
+    .menu .item {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        height: auto;
+        width: 85%;
+    }
+    .menu .item div {
+        width: 100%;
+    }
+    .menu .item h3 {
+        padding: 15px;
+        text-align: left;
+        padding-bottom: 0px;
+    }
+    .menu .item p {
+        font-size: 10px;
+        padding: 0 15px;
+        margin-top: 5px;
+    }
+    .menu .item .fav-price {
+        font-size: 13px;
+        color: red;
+        padding-bottom: 15px;
+    }
+    .menu .item:hover {
+        transform: scale(1);
+        box-shadow: 0 2px 5px rgb(53, 0, 0);
+    }
+}
+
+
+/* ===== Developer Page Styling ===== */
+
+/* Apply the same fade-in effect */
+body.developer-page {
+   background: linear-gradient(
+      to right,
+      rgb(189, 224, 255),
+      rgb(221, 234, 246)
+   );
+   animation: fadeIn 0.8s ease-in-out;
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
+}

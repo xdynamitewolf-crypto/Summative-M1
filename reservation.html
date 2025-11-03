@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="../images/logo1.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="reservation.html">
+    <link rel="stylesheet" href="style.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food website | Book Table</title>
+</head>
+
+<body>
+    <div class="table">
+        <div class="sign">
+            <div class="sign-box">
+                <div class="bar">
+                    <a href="./MyRestaurantRequiso.html"><i class="fa-solid fa-xmark" id="x-sign-mb"></i></a>
+                </div>
+                <div class="signup">
+                    <h3>Book Your Table</h3>
+                    <form action="#">
+                        <label for="name">Name</label></br>
+                        <input type="text" placeholder="Full Name" name="name" id=""></br>
+                        <label for="email-table">E-mail</label></br>
+                        <input type="email" placeholder="E-mail" name="email-table" id=""></br>
+                        <label for="date">Date</label></br>
+                        <input type="date" name="date" id=""></br>
+                        <label for="time">Time</label></br>
+                        <input type="time" name="time" id=""></br>
+                        <input type="submit" value="Book Now">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script>
+  const form = document.querySelector('.signup form');
+
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = form.querySelector('input[name="name"]').value;
+      const email = form.querySelector('input[name="email-table"]').value;
+      const date = form.querySelector('input[name="date"]').value;
+      const time = form.querySelector('input[name="time"]').value;
+      const guests = Math.floor(Math.random() * 5) + 1; // or add your own guests input
+
+      const reservations = JSON.parse(localStorage.getItem('reservations')) || [];
+      reservations.push({ name, email, date, time, guests });
+      localStorage.setItem('reservations', JSON.stringify(reservations));
+
+      alert("Reservation recorded successfully!");
+      form.reset();
+      window.location.href = "./MyRestaurantRequiso.html"; // optional: redirect back to home
+    });
+  }
+</script>
+</body>
+
+</html>

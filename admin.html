@@ -1,73 +1,133 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Golden Spoon | Admin</title>
-  <link rel="stylesheet" href="style.css">
-</head>
 <body class="admin-page">
+  <link rel="stylesheet" href="admin.css">
+
   <div class="page-container">
     <h1>Admin Dashboard - The Golden Spoon</h1>
 
-    <section>
-      <h2>Manage Menu</h2>
-      <table>
-        <tr>
-          <th>Dish</th>
-          <th>Price</th>
-          <th>Status</th>
-        </tr>
-        <tr>
-          <td>Seafood Noodles</td>
-          <td>$5.99</td>
-          <td>Available</td>
-        </tr>
-        <tr>
-          <td>Roasted Chicken</td>
-          <td>$7.99</td>
-          <td>Available</td>
-        </tr>
-        <tr>
-          <td>Pad Thai</td>
-          <td>$6.99</td>
-          <td>Out of Stock</td>
-        </tr>
+    <section id="usersSection">
+      <h2>Registered Users</h2>
+      <table id="usersTable">
+        <tr><th>Full Name</th><th>Email</th></tr>
       </table>
     </section>
 
-    <section>
+    <section id="reservationsSection">
       <h2>Reservations</h2>
-      <table>
-        <tr>
-          <th>Name</th>
-          <th>Date</th>
-          <th>Time</th>
-          <th>Guests</th>
-        </tr>
-        <tr>
-          <td>John Doe</td>
-          <td>Sept 25, 2025</td>
-          <td>7:00 PM</td>
-          <td>2</td>
-        </tr>
-        <tr>
-          <td>Jane Smith</td>
-          <td>Sept 26, 2025</td>
-          <td>8:30 PM</td>
-          <td>4</td>
-        </tr>
+      <table id="reservationsTable">
+        <tr><th>Name</th><th>Date</th><th>Time</th><th>Guests</th></tr>
       </table>
     </section>
 
-    <section>
+    <section id="feedbackSection">
       <h2>Customer Feedback</h2>
-      <ul>
-        <li>"The food was amazing!" - Student1</li>
-        <li>"Loved the shrimp noodles!" - Guest45</li>
-      </ul>
+      <ul id="feedbackList"></ul>
     </section>
   </div>
+
+
+  <script>
+  function loadAdminData() {
+    // --- USERS ---
+    const users = JSON.parse(localStorage.getItem('users')) || [];
+    const usersTable = document.getElementById('usersTable');
+    usersTable.innerHTML = "<tr><th>Full Name</th><th>Email</th><th>Actions</th></tr>";
+
+    users.forEach((user, index) => {
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td>${user.fullName}</td>
+        <td>${user.email}</td>
+        <td>
+          <button onclick="deleteUser(${index})">🗑️ Delete</button>
+        </td>
+      `;
+      usersTable.appendChild(row);
+    });
+
+    // --- RESERVATIONS ---
+    const reservations = JSON.parse(localStorage.getItem('reservations')) || [];
+    const reservationsTable = document.getElementById('reservationsTable');
+    reservationsTable.innerHTML = "<tr><th>Name</th><th>Date</th><th>Time</th><th>Guests</th><th>Actions</th></tr>";
+
+    reservations.forEach((res, index) => {
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td>${res.name}</td>
+        <td>${res.date}</td>
+        <td>${res.time}</td>
+        <td>${res.guests}</td>
+        <td>
+          <button onclick="deleteReservation(${index})">🗑️ Delete</button>
+        </td>
+      `;
+      reservationsTable.appendChild(row);
+    });
+
+    // --- FEEDBACK ---
+    const feedbacks = JSON.parse(localStorage.getItem('feedbacks')) || [];
+    const feedbackList = document.getElementById('feedbackList');
+    feedbackList.innerHTML = "";
+
+    feedbacks.forEach((fb, index) => {
+      const li = document.createElement('li');
+      li.innerHTML = `"${fb.message}" — ${fb.user} 
+        <button onclick="deleteFeedback(${index})">🗑️</button>`;
+      feedbackList.appendChild(li);
+    });
+
+    // --- LOGIN LOGS ---
+    const existingLogSection = document.getElementById('logSection');
+    if (existingLogSection) existingLogSection.remove();
+
+    const logins = JSON.parse(localStorage.getItem('logins')) || [];
+    if (logins.length > 0) {
+      const logSection = document.createElement('section');
+      logSection.id = 'logSection';
+      logSection.innerHTML = `
+        <h2>Login Activity</h2>
+        <table>
+          <tr><th>Username</th><th>Login Time</th></tr>
+          ${logins.map(log => `<tr><td>${log.username}</td><td>${log.time}</td></tr>`).join('')}
+        </table>
+      `;
+      document.querySelector('.page-container').appendChild(logSection);
+    }
+  }
+
+  // 🗑️ DELETE FUNCTIONS
+  function deleteUser(index) {
+    const users = JSON.parse(localStorage.getItem('users')) || [];
+    if (confirm(`Delete user "${users[index].fullName}"?`)) {
+      users.splice(index, 1);
+      localStorage.setItem('users', JSON.stringify(users));
+      loadAdminData();
+    }
+  }
+
+  function deleteReservation(index) {
+    const reservations = JSON.parse(localStorage.getItem('reservations')) || [];
+    if (confirm(`Delete reservation for "${reservations[index].name}"?`)) {
+      reservations.splice(index, 1);
+      localStorage.setItem('reservations', JSON.stringify(reservations));
+      loadAdminData();
+    }
+  }
+
+  function deleteFeedback(index) {
+    const feedbacks = JSON.parse(localStorage.getItem('feedbacks')) || [];
+    if (confirm(`Delete feedback from "${feedbacks[index].user}"?`)) {
+      feedbacks.splice(index, 1);
+      localStorage.setItem('feedbacks', JSON.stringify(feedbacks));
+      loadAdminData();
+    }
+  }
+
+  // Load everything
+  loadAdminData();
+  setInterval(loadAdminData, 2000);
+  window.addEventListener('storage', loadAdminData);
+</script>
+
 </body>
-</html>
+
 
